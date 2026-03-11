@@ -92,6 +92,7 @@ The included `.env.example` covers the common product-level knobs.
 | `CHROME_DEBUG_ADDRESS` | `127.0.0.1` | Internal Chrome debugging bind address |
 | `CHROME_DEBUG_PORT` | `9222` | Internal Chrome debugging port |
 | `CHROME_USER_DATA_DIR` | `/config/chrome-debug-profile` | Chrome profile directory |
+| `CHROME_SESSION_RESTORE_ENABLED` | `true` | Reopen the last browser session after restarts |
 | `CHROME_SHM_SIZE` | `1gb` | Shared memory size for the browser |
 | `EXTRA_CHROME_CLI` | empty | Extra Chrome flags appended to the generated Chrome launch arguments |
 
@@ -159,6 +160,7 @@ If the UI is required, also confirm the browser frontend responds on `http://loc
 
 - Port `9222` is intentionally kept internal. The supported external entrypoint is the proxy port, `9223` by default.
 - Browser profile data persists in `./config`, which is useful when you want to suspend, resume, or keep a session around.
+- Session restore is enabled by default so Chrome reopens the previous tabs after a restart. This is a best-effort browser session restore, not a process-level checkpoint/resume.
 - Startup cleans stale Chrome singleton lock files inside the configured profile directory so reused volumes can boot cleanly.
 - If you want a fresh browser state, stop the stack and clear `./config` before starting again.
 - The CDP health check targets the proxy endpoint rather than the raw Chrome port, which better reflects real client readiness.
