@@ -1,5 +1,9 @@
 # Chrome DevTools Sandbox
 
+
+https://github.com/user-attachments/assets/5273a7a9-d1c1-4d4c-a23a-2ea6c7a19403
+
+
 Disposable Chrome containers with a remote CDP endpoint and optional web UI.
 
 Built on top of [linuxserver/docker-chrome](https://github.com/linuxserver/docker-chrome), with a small proxy layer so Chrome DevTools Protocol stays reachable from outside the container.
